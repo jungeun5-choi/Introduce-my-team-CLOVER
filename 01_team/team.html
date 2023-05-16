@@ -13,29 +13,42 @@
         crossorigin="anonymous"></script>
 
     <title>TEAM CLOVER</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
-
+    
     <style>
-        * {
-            font-family: 'Gowun Dodum', sans-serif;
+        @font-face {
+            font-family: 'TheJamsil5Bold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+            font-weight: 300;
+            font-style: normal;
+        }
+        body {
+            font-family: 'TheJamsil5Bold';
+        }
+        
+        .background {
+            width: 100%;
+            height: 250px;
+
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1447767819330-4adf93b62dfe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format');
+            background-position: center;
+            background-size: cover;
         }
 
         .teamtitle {
             width: 100%;
             height: 250px;
-
-            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1615849784427-ae4d6d895155?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&w=1920&q=100');
-            background-position: center;
-            background-size: cover;
+            max-width: 1200px;
 
             color: white;
 
             display: flex;
             flex-direction: column;
             align-items: left;
-            padding: 0px 0px 0px 50px;
+
             justify-content: center;
+            
+            margin: 0px auto 0px auto;
+            padding: 0px 20px 0px 20px;
         }
         .teamtitle>p {
             
@@ -49,36 +62,44 @@
         
         .teamintroduce {
             width: 100%;
+            max-width: 1200px;
 
             display: flex;
             flex-direction: column;
 
             align-items: left;
-            padding: 50px 50px 50px 50px;
+
+            margin: 5px auto 0px auto;
+            padding: 40px 20px 40px 20px;
         }
         .teamintroduce>p {
-
             margin-top: 15px;
             margin-bottom: 30px;
         }
 
         .members {
-            margin: 20px auto 0px auto;
-            width: 95%;
-            /*max-width: 1200px;*/
+            width: 100%;
+            max-width: 1200px;
+
+            align-items: left;
+
+            margin: 5px auto 0px auto;
+            padding: 40px 20px 40px 20px;           
         }
 
         .tag {       
-            width: 65px;
+            width: 60px;
             text-align: center;
             
             border: 1px solid transparent;
             border-radius: 30px;
             
             margin-left: 10px;
+
+            font-size: small;
         }
         #teamleader {                      
-            background-color: lightgreen;
+            background-color: rgb(170,204,156);
         }
         #teammember {
             background-color: lightgray;
@@ -106,95 +127,43 @@
 
     </style>
     <script>
-        $(document).ready(function () {
-            listing();
-        });
-
-        function listing() {
-            fetch('/movie').then((res) => res.json()).then((data) => {
-                let rows = data['result']
-                $('#cards-box').empty()
-                rows.forEach((a)=>{
-                    let comment = a['comment']
-                    let title = a['title']
-                    let desc = a['desc']
-                    let image = a['image']
-                    let star = a['star']
-
-                    let star_repeat = '⭐'.repeat(star)
-
-                    let temp_html = `<div class="col">
-                                        <div class="card h-100">
-                                            <img src="${image}"
-                                                class="card-img-top">
-                                            <div class="card-body">
-                                                <h5 class="card-title">${title}</h5>
-                                                <p class="card-text">${desc}</p>
-                                                <p>${star_repeat}</p>
-                                                <p class="mycomment">${comment}</p>
-                                            </div>
-                                        </div>
-                                    </div>`
-                    $('#cards-box').append(temp_html)
-                })
-            })
-        }
-
-        function posting() {
-            let url = $('#url').val()
-            let comment = $('#comment').val()
-            let star = $('#star').val()
-
-            let formData = new FormData();
-            formData.append("url_give", url);
-            formData.append("comment_give", comment);
-            formData.append("star_give", star);
-
-            fetch('/movie', { method: "POST", body: formData }).then((res) => res.json()).then((data) => {
-                alert(data['msg'])
-                window.location.reload()
-            })
-        }
-
-        function open_box() {
-            $('#post-box').show()
-        }
-        function close_box() {
-            $('#post-box').hide()
-        }
+        
     </script>
 </head>
 
 <body>
     <!-- title -->
-    <div class="teamtitle">
-        <h1>🍀 CLOVER</h1>        
-        <p> 6기 Spring b반 6조 </p>        
+    <div class ="background">
+        <div class="teamtitle">
+            <h1><b>🍀 CLOVER</b></h1>
+            <p> 6기 Spring b반 6조 </p>        
+        </div>
     </div>
     <!-- team introduce -->
     <div class = "teamintroduce">
-        <h3>🍀 팀 소개 </h3>
+        <h3><b>🍀 팀 소개</b></h3>
         <p>
             클로버는 행복과 행운을 상징합니다. <br>
             저희 팀은 클로버처럼 사용자에게 행복과 행운을 전하는 개발자가 되고 싶은 사람들이 모였습니다. 
         </p>
 
-        <h3> 🧗 우리 팀 목표는? </h3>
+        <h3><b>🧗 우리 팀 목표는?</b></h3>
         <p> 
-            포기하지 말고 내배캠 완주하자! <br>
+            포기하지 말고 <b>내배캠 완주</b>하자! <br>
             (뭘더적으면좋을까요....)
         </p>
 
-        <h3> 🤙 우리 팀의 약속 </h3>
+        <h3><b>🤙 우리 팀의 약속</b></h3>
         <p> 
             🙋 9시에 출석해서 서로 <b>인사</b>하기 <br>
-            📑 매일 일과 후에는 작성한 TIL을 멤버 간 공유하기 <br>
+            📑 매일 일과 후에는 작성한 <b>TIL을 멤버 간 공유</b>하기 <br>
             💾 잊지 말자 <b>1일 1커밋!</b>
         </p>
     </div>
     <!-- member profiles -->
     <div class="members">
-        <div class="row row-cols-1 row-cols-md-5 g-1 img-rounded">
+        <h3><b>🍀 CLOVER 팀원들</b></h3>
+        <div class="row row-cols-1 row-cols-md-5 g-1">
             <!-- 팀장 -->
             <div class="col mb-5">
                 <div class="card h-70">
