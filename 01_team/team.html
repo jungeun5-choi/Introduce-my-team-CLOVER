@@ -84,7 +84,7 @@
             align-items: left;
 
             margin: 5px auto 0px auto;
-            padding: 40px 20px 40px 20px;           
+            padding: 0px 20px 20px 20px;           
         }
 
         .tag {       
@@ -125,6 +125,11 @@
             background-color: rgb(71, 117, 167);
         }
 
+        .highlight {
+            display: inline;
+            box-shadow: inset 0 -10px 0 #d4ffd6; 
+            /*-10px은 highlight의 두께*/
+        }
     </style>
     <script>
         
@@ -141,28 +146,28 @@
     </div>
     <!-- team introduce -->
     <div class = "teamintroduce">
-        <h3><b>🍀 팀 소개</b></h3>
+        <h3>🍀<span class="highlight"> 팀 소개</span></h3>
         <p>
             클로버는 행복과 행운을 상징합니다. <br>
-            저희 팀은 클로버처럼 사용자에게 행복과 행운을 전하는 개발자가 되고 싶은 사람들이 모였습니다. 
+            저희 팀은 클로버처럼 사용자에게 <span class="highlight">행복과 행운을 전하는 개발자</span>가 되고 싶은 사람들이 모였습니다. 
         </p>
 
-        <h3><b>🧗 우리 팀 목표는?</b></h3>
+        <h3>🧗<span class="highlight"> 우리 팀 목표는?</span></h3>
         <p> 
-            포기하지 말고 <b>내배캠 완주</b>하자! <br>
+            포기하지 말고 <span class="highlight">내배캠 완주</span>하자! <br>
             (뭘더적으면좋을까요....)
         </p>
 
-        <h3><b>🤙 우리 팀의 약속</b></h3>
+        <h3>🤙<span class="highlight"> 우리 팀의 약속</span></h3>
         <p> 
-            🙋 9시에 출석해서 서로 <b>인사</b>하기 <br>
-            📑 매일 일과 후에는 작성한 <b>TIL을 멤버 간 공유</b>하기 <br>
-            💾 잊지 말자 <b>1일 1커밋!</b>
+            🙋 9시에 출석해서 서로 <span class="highlight">인사</span>하기 <br>
+            📑 매일 일과 후에는 작성한 <span class="highlight">TIL을 멤버 간 공유</span>하기 <br>
+            💾 잊지 말자 <span class="highlight">1일 1커밋!</span>
         </p>
     </div>
     <!-- member profiles -->
     <div class="members">
-        <h3><b>🍀 CLOVER 팀원들</b></h3>
+        <h3>🍀<span class="highlight"> CLOVER 팀원들</span></h3>
         <div class="row row-cols-1 row-cols-md-5 g-1">
             <!-- 팀장 -->
             <div class="col mb-5">
