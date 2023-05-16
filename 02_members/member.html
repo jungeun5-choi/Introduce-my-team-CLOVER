@@ -31,6 +31,26 @@
       * {
         font-family: "Gowun Dodum", sans-serif;
       }
+      .mytitle {
+        width: 100%;
+        height: 100px;
+
+        background-position: center;
+        background-size: cover;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .main > .image {
+        display: inline-block;
+        margin-left: 100px;
+        align: right;
+      }
+      .main > .member {
+        float: left;
+      }
       .mypost {
         width: 95%;
         max-width: 500px;
@@ -78,16 +98,20 @@
 
   <body>
     <div class="mytitle">
-      <h3>팀원 소개 페이지</h3>
+      <h3>🍀팀원 소개 페이지</h3>
     </div>
     <div>
       <div class="intro">
         <div class="main">
-          <img
-            src="https://www.adobe.com/content/dam/cc/us/en/creative-cloud/photography/discover/landscape-photography/CODERED_B1_landscape_P2d_714x348.jpg.img.jpg"
-          />
-          <h1>팀원 이름</h1>
-          <h4>MBTI</h4>
+          <div class="image">
+            <img
+              src="https://www.adobe.com/content/dam/cc/us/en/creative-cloud/photography/discover/landscape-photography/CODERED_B1_landscape_P2d_714x348.jpg.img.jpg"
+            />
+          </div>
+          <div class="member">
+            <h1>팀원 이름</h1>
+            <h4>MBTI</h4>
+          </div>
         </div>
         <div class="etc">
           <h3>자기소개</h3>
