@@ -38,25 +38,29 @@
             padding: 0px 0px 0px 50px;
             justify-content: center;
         }
-
         .teamtitle>p {
-            width: 150px;
-            height: 30px;
-
-            background-color: transparent;
+            
             color: white;
 
-            border-radius: 10px;
-            border: 1px solid white;
-
             margin-top: 10px;
-            margin-left: 65px;
+            margin-left: 12px;
 
-            text-align: center;
+            vertical-align: middle;
         }
         
         .teamintroduce {
+            width: 100%;
 
+            display: flex;
+            flex-direction: column;
+
+            align-items: left;
+            padding: 50px 50px 50px 50px;
+        }
+        .teamintroduce>p {
+
+            margin-top: 15px;
+            margin-bottom: 30px;
         }
 
         .members {
@@ -75,14 +79,30 @@
 <body>
     <!-- title -->
     <div class="teamtitle">
-        <h1>🍀 CLOVER 🍀</h1>        
+        <h1>🍀 CLOVER</h1>        
         <p> 6기 Spring b반 6조 </p>        
     </div>
 
     <!-- team introduce -->
     <div class = "teamintroduce">
-        
+        <h3>🍀 팀 소개 </h3>
+        <p>
+            클로버는 행복과 행운을 상징합니다. <br>
+            저희 팀은 클로버처럼 사용자에게 행복과 행운을 전하는 개발자가 되고 싶은 사람들이 모였습니다. 
+        </p>
 
+        <h3> 🧗 우리 팀 목표는? </h3>
+        <p> 
+            포기하지 말고 내배캠 완주하자! <br>
+            (뭘더적으면좋을까요....)
+        </p>
+
+        <h3> 🤙 우리 팀의 약속 </h3>
+        <p> 
+            🙋 9시에 출석해서 서로 <b>인사</b>하기 <br>
+            📑 매일 일과 후에는 작성한 TIL을 멤버 간 공유하기 <br>
+            💾 잊지 말자 <b>1일 1커밋!</b>
+        </p>
     </div>
     
     <!-- member profiles -->
