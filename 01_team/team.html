@@ -16,7 +16,6 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
 
-    <!-- style -->
     <style>
         * {
             font-family: 'Gowun Dodum', sans-serif;
@@ -26,7 +25,7 @@
             width: 100%;
             height: 250px;
 
-            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1615849784427-ae4d6d895155?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1615849784427-ae4d6d895155?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&w=1920&q=100');
             background-position: center;
             background-size: cover;
 
@@ -66,13 +65,103 @@
         .members {
             margin: 20px auto 0px auto;
             width: 95%;
-            max-width: 1200px;
+            /*max-width: 1200px;*/
         }
+
+        .tag {       
+            width: 65px;
+            text-align: center;
+            
+            border: 1px solid transparent;
+            border-radius: 30px;
+            
+            margin-left: 10px;
+        }
+        #teamleader {                      
+            background-color: lightgreen;
+        }
+        #teammember {
+            background-color: lightgray;
+        }
+        #INTP {
+            color:white;
+            background-color: rgb(13, 128, 128);
+        }
+        #ISFJ {
+            color:white;
+            background-color: rgb(171, 157, 159);
+        }
+        #ISTJ {
+            color:white;
+            background-color: rgb(30, 53, 74);
+        }
+        #ENFJ {
+            color:white;
+            background-color: rgb(157, 120, 126);
+        }
+        #ESTJ {
+            color:white;
+            background-color: rgb(71, 117, 167);
+        }
+
     </style>
-
-    <!-- script -->
     <script>
+        $(document).ready(function () {
+            listing();
+        });
 
+        function listing() {
+            fetch('/movie').then((res) => res.json()).then((data) => {
+                let rows = data['result']
+                $('#cards-box').empty()
+                rows.forEach((a)=>{
+                    let comment = a['comment']
+                    let title = a['title']
+                    let desc = a['desc']
+                    let image = a['image']
+                    let star = a['star']
+
+                    let star_repeat = '⭐'.repeat(star)
+
+                    let temp_html = `<div class="col">
+                                        <div class="card h-100">
+                                            <img src="${image}"
+                                                class="card-img-top">
+                                            <div class="card-body">
+                                                <h5 class="card-title">${title}</h5>
+                                                <p class="card-text">${desc}</p>
+                                                <p>${star_repeat}</p>
+                                                <p class="mycomment">${comment}</p>
+                                            </div>
+                                        </div>
+                                    </div>`
+                    $('#cards-box').append(temp_html)
+                })
+            })
+        }
+
+        function posting() {
+            let url = $('#url').val()
+            let comment = $('#comment').val()
+            let star = $('#star').val()
+
+            let formData = new FormData();
+            formData.append("url_give", url);
+            formData.append("comment_give", comment);
+            formData.append("star_give", star);
+
+            fetch('/movie', { method: "POST", body: formData }).then((res) => res.json()).then((data) => {
+                alert(data['msg'])
+                window.location.reload()
+            })
+        }
+
+        function open_box() {
+            $('#post-box').show()
+        }
+        function close_box() {
+            $('#post-box').hide()
+        }
     </script>
 </head>
 
@@ -82,7 +171,6 @@
         <h1>🍀 CLOVER</h1>        
         <p> 6기 Spring b반 6조 </p>        
     </div>
-
     <!-- team introduce -->
     <div class = "teamintroduce">
         <h3>🍀 팀 소개 </h3>
@@ -104,10 +192,81 @@
             💾 잊지 말자 <b>1일 1커밋!</b>
         </p>
     </div>
-    
     <!-- member profiles -->
     <div class="members">
-
+        <div class="row row-cols-1 row-cols-md-5 g-1 img-rounded">
+            <!-- 팀장 -->
+            <div class="col mb-5">
+                <div class="card h-70">
+                    <img src="https://images.unsplash.com/photo-1615849784427-ae4d6d895155?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format"
+                        class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">정해인</h5>
+                        <div class ="row">
+                            <p class="tag" id="teamleader">팀장</p>
+                            <p class="tag" id="INTP">INTP</p>
+                        </div>
+                    </div>
+                </div>             
+            </div>
+            <!-- 팀원1 -->
+            <div class="col mb-5">
+                <div class="card h-70">
+                    <img src="https://images.unsplash.com/photo-1615849784427-ae4d6d895155?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format"
+                        class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">최정은</h5>
+                        <div class ="row">
+                            <p class="tag" id="teammember">팀원</p>
+                            <p class="tag" id="ISFJ">ISFJ</p>
+                        </div>
+                    </div>
+                </div>             
+            </div>
+            <!-- 팀원2 -->
+            <div class="col mb-5">
+                <div class="card h-70">
+                    <img src="https://images.unsplash.com/photo-1615849784427-ae4d6d895155?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format"
+                        class="card-img-top">
+                    <div class="card-body">                        
+                        <h5 class="card-title">류형수</h5>
+                        <div class ="row">
+                            <p class="tag" id="teammember">팀원</p>
+                            <p class="tag" id="ISTJ">ISTJ</p>
+                        </div>
+                    </div>
+                </div>             
+            </div>
+            <!-- 팀원3 -->
+            <div class="col mb-5">
+                <div class="card h-70">
+                    <img src="https://images.unsplash.com/photo-1615849784427-ae4d6d895155?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format"
+                        class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">김태훈</h5>
+                        <div class ="row">
+                            <p class="tag" id="teammember">팀원</p>
+                            <p class="tag" id="ENFJ">ENFJ</p>
+                        </div>
+                    </div>
+                </div>             
+            </div>
+            <!-- 팀원4 -->
+            <div class="col mb-5">
+                <div class="card h-70">
+                    <img src="https://images.unsplash.com/photo-1615849784427-ae4d6d895155?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format"
+                        class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">정지상</h5>                        
+                        <div class ="row">
+                            <p class="tag" id="teammember">팀원</p>
+                            <p class="tag" id="ESTJ">ESTJ</p>
+                        </div>
+                    </div>
+                </div>             
+            </div>
+        </div>
     </div>
 </body>
+
 </html>
