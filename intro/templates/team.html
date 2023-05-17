@@ -13,7 +13,7 @@
         crossorigin="anonymous"></script>
 
     <title>TEAM CLOVER</title>
-    
+
     <style>
         @font-face {
             font-family: 'TheJamsil5Bold';
@@ -21,10 +21,11 @@
             font-weight: 300;
             font-style: normal;
         }
+
         body {
             font-family: 'TheJamsil5Bold';
         }
-        
+
         .background {
             width: 100%;
             height: 250px;
@@ -46,12 +47,13 @@
             align-items: left;
 
             justify-content: center;
-            
+
             margin: 0px auto 0px auto;
             padding: 0px 20px 0px 20px;
         }
+
         .teamtitle>p {
-            
+
             color: white;
 
             margin-top: 10px;
@@ -59,7 +61,7 @@
 
             vertical-align: middle;
         }
-        
+
         .teamintroduce {
             width: 100%;
             max-width: 1200px;
@@ -72,6 +74,7 @@
             margin: 5px auto 0px auto;
             padding: 40px 20px 40px 20px;
         }
+
         .teamintroduce>p {
             margin-top: 15px;
             margin-bottom: 30px;
@@ -84,60 +87,67 @@
             align-items: left;
 
             margin: 5px auto 0px auto;
-            padding: 0px 20px 20px 20px;           
+            padding: 0px 20px 20px 20px;
         }
 
-        .tag {       
+        .tag {
             width: 60px;
             text-align: center;
-            
+
             border: 1px solid transparent;
             border-radius: 30px;
-            
+
             margin-left: 10px;
 
             font-size: small;
         }
-        #teamleader {                      
-            background-color: rgb(170,204,156);
+
+        #teamleader {
+            background-color: rgb(170, 204, 156);
         }
+
         #teammember {
             background-color: lightgray;
         }
+
         #INTP {
-            color:white;
+            color: white;
             background-color: rgb(13, 128, 128);
         }
+
         #ISFJ {
-            color:white;
+            color: white;
             background-color: rgb(171, 157, 159);
         }
+
         #ISTJ {
-            color:white;
+            color: white;
             background-color: rgb(30, 53, 74);
         }
+
         #ENFJ {
-            color:white;
+            color: white;
             background-color: rgb(157, 120, 126);
         }
+
         #ESTJ {
-            color:white;
+            color: white;
             background-color: rgb(71, 117, 167);
         }
 
         .highlight {
             display: inline;
-            box-shadow: inset 0 -10px 0 #d4ffd6; 
+            box-shadow: inset 0 -10px 0 #d4ffd6;
             /*-10px은 highlight의 두께*/
         }
 
         .div-img-top {
-            width:200px;
+            width: 200px;
         }
 
         .card-img-top {
-            width:200px;
-            height:200px;
+            width: 200px;
+            height: 200px;
 
         }
     </style>
@@ -145,41 +155,44 @@
         $(document).ready(function () {
             listing();
             // 클래스를 가진 element에 클릭 이벤트를 걸 수 있음
-            $(document).on("click", ".div-img-top", function(){
+            $(document).on("click", ".div-img-top", function () {
                 var id = $(this).data("key");
-                window.location.href='/member?id=' + id
+                window.location.href = '/member?id=' + id
             });
 
 
         });
 
         function listing() {
-            
+
             fetch('/members').then((res) => res.json()).then((data) => {
-            let rows = data['result']
-            console.log(rows)
-            $('#members').empty()
-            var count = 0;
+                let rows = data['result']
+                console.log(rows)
+                $('#members').empty()
+                var count = 0;
 
-            let tmp_results = rows.replaceAll('ObjectId(','').replaceAll(')','')
-                            .replaceAll('\"','')
-                            .replaceAll('\'','"')
-            let convert_data = JSON.parse(tmp_results);
+                let tmp_results = rows.replaceAll('ObjectId(', '').replaceAll(')', '')
+                    .replaceAll('\"', '')
+                    .replaceAll('\'', '"')
+                let convert_data = JSON.parse(tmp_results);
 
-            if (convert_data.length > 0) {
-                convert_data.forEach((a) => {
-                    let name = a['name']
-                    let mbti = a['mbti']
-                    let selfintro = a['selfintro']
-                    let mystyle = a['mystyle']
-                    let blog = a['blog']
-                    let image = (a['image'] == undefined || a['image'] == "" ? "https://images.unsplash.com/photo-1615849784427-ae4d6d895155?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format": a['image'])
-                    let isManager =a['ismanager']
-                    let id = a['_id']
-                    console.log(id)
+                if (convert_data.length > 0) {
+                    convert_data.forEach((a) => {
+                        let name = a['name']
+                        let mbti = a['mbti']
+                        let selfintro = a['selfintro']
+                        let mystyle = a['mystyle']
+                        let blog = a['blog']
+                        let image = (a['image'] == undefined || a['image'] == "" ? "https://images.unsplash.com/photo-1615849784427-ae4d6d895155?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format" : a['image'])
+                        let isManager = a['ismanager']
+                        let id = a['_id']
+                        console.log(id)
 
-                    if (isManager == 'Y') {
-                        let temp_html = `
+                        let div_front = `<div class="row row-cols-1 row-cols-md-5 g-1">`
+                        let div_back = `</div>`
+
+                        if (isManager == 'Y') {
+                            let temp_html = `                            
                             <div class="col mb-5">
                                 <div class="card h-70 div-img-top" data-key="${id}">
                                     <img src= ${image}
@@ -194,9 +207,10 @@
                                 </div>             
                             </div>
                         `
-                        $('#members').append(temp_html);
-                    } else {
-                        let temp_html = `
+                            $('#members').append(temp_html);
+
+                        } else {
+                            let temp_html = `
                             <div class="col mb-5">
                                 <div class="card h-70 div-img-top" data-key="${id}">
                                     <img src= ${image}
@@ -211,53 +225,53 @@
                                 </div>             
                             </div>
                         `
-                        $('#members').append(temp_html);
-                    }
-                    
-                    
-                })
-          }
-          
-                
-        })
-      }
-        
+                            $('#members').append(temp_html);
+                        }
+
+
+                    })
+                }
+
+
+            })
+        }
+
     </script>
 </head>
 
 <body>
     <!-- title -->
-    <div class ="background">
+    <div class="background">
         <div class="teamtitle">
             <h1><b>🍀 CLOVER</b></h1>
-            <p> 6기 Spring b반 6조 </p>        
+            <p> 6기 Spring b반 6조 </p>
         </div>
     </div>
     <!-- team introduce -->
-    <div class = "teamintroduce">
+    <div class="teamintroduce">
         <h3>🍀<span class="highlight"> 팀 소개</span></h3>
         <p>
             클로버는 행복과 행운을 상징합니다. <br>
-            저희 팀은 클로버처럼 사용자에게 <span class="highlight">행복과 행운을 전하는 개발자</span>가 되고 싶은 사람들이 모였습니다. 
+            저희 팀은 클로버처럼 사용자에게 <span class="highlight">행복과 행운을 전하는 개발자</span>가 되고 싶은 사람들이 모였습니다.
         </p>
 
         <h3>🧗<span class="highlight"> 우리 팀 목표는?</span></h3>
-        <p> 
+        <p>
             포기하지 말고 <span class="highlight">내배캠 완주</span>하자! <br>
             (뭘더적으면좋을까요....)
         </p>
 
         <h3>🤙<span class="highlight"> 우리 팀의 약속</span></h3>
-        <p> 
+        <p>
             🙋 9시에 출석해서 서로 <span class="highlight">인사</span>하기 <br>
             📑 매일 일과 후에는 작성한 <span class="highlight">TIL을 멤버 간 공유</span>하기 <br>
             💾 잊지 말자 <span class="highlight">1일 1커밋!</span>
         </p>
     </div>
-    <h3>🍀<span class="highlight"> CLOVER 팀원들</span></h3>
+    <h3 class="members">🍀<span class="highlight"> CLOVER 팀원들</span></h3>
     <!-- member profiles -->
-    <div class="members" id="members">
-        <div class="row row-cols-1 row-cols-md-5 g-1">
+    <div class="members" >
+        <div class="row row-cols-1 row-cols-md-5 g-1" id="members">
         </div>
     </div>
 </body>
