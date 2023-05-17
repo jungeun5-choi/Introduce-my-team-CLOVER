@@ -179,7 +179,7 @@
                         let id = a['_id']
                         console.log(id)
 
-                        
+
                         if (isManager == 'Y') {
                             let temp_html = `                            
                             <div class="col mb-5">
@@ -189,8 +189,8 @@
                                     <div class="card-body">
                                         <h5 class="card-title">${name}</h5>
                                         <div class ="row">
-                                            <p class="tag" id="tag_manager">팀장</p>
-                                            <p class="tag" id="tag_mbti">${mbti}</p>
+                                            <p class="tag" id="teamleader">팀장</p>
+                                            <p class="tag" id="${mbti}">${mbti}</p>
                                         </div>
                                     </div>
                                 </div>             
@@ -207,8 +207,8 @@
                                     <div class="card-body">
                                         <h5 class="card-title">${name}</h5>
                                         <div class ="row">
-                                            <p class="tag" id="tag_manager">팀원</p>
-                                            <p class="tag" id="tag_mbti">${mbti}</p>
+                                            <p class="tag" id="teammember">팀원</p>
+                                            <p class="tag" id="${mbti}">${mbti}</p>
                                         </div>
                                     </div>
                                 </div>             
