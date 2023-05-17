@@ -15,22 +15,9 @@ def home():
     return render_template('team.html')
 
 # 장르별
-@app.route('/members')
+@app.route('/member')
 def member():
-    name = request.args.get('name')
-
-    if name == '해인':
-        return render_template('member.html')
-    elif name == '정은':
-        return render_template('member.html')
-    elif name == '태훈':
-        return render_template('member.html')
-    elif name == '지상':
-        return render_template('member.html')
-    elif name == '형수':
-        return render_template('member.html')
-    
-
+    return render_template('member.html')
 
 
 @app.route("/movie", methods=["POST"])
@@ -62,10 +49,23 @@ def movie_post():
     print(url_receive)
     return jsonify({'msg':'저장 완료!'})
 
+import json
+from bson.objectid import ObjectId
+
 @app.route("/members", methods=["GET"])
 def member_get():
-    all_member = list(db.members.find({},{'_id':False}))
-    return jsonify({'result':all_member})
+    all_member = list(db.member.find())
+    all_member_list = json.dumps(str(all_member), ensure_ascii=False)
+    return jsonify({'result': all_member_list})
+
+@app.route("/getmember", methods=["POST"])
+def member_one_get():
+    id_receive = request.form['id_give']
+    obj_id = ObjectId(id_receive)
+    member = db.member.find_one({'_id': obj_id}, {'_id': False})
+    return jsonify({'msg': '상세페이지', 'result': member})
+
+
 
 if __name__ == '__main__':
    app.run('0.0.0.0', port=5000, debug=True)
