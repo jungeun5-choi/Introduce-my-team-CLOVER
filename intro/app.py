@@ -15,9 +15,22 @@ def home():
     return render_template('team.html')
 
 # 장르별
-@app.route('/member')
+@app.route('/members')
 def member():
-    return render_template('member.html')
+    name = request.args.get('name')
+
+    if name == '해인':
+        return render_template('member.html')
+    elif name == '정은':
+        return render_template('member.html')
+    elif name == '태훈':
+        return render_template('member.html')
+    elif name == '지상':
+        return render_template('member.html')
+    elif name == '형수':
+        return render_template('member.html')
+    
+
 
 
 @app.route("/movie", methods=["POST"])
@@ -51,7 +64,7 @@ def movie_post():
 
 @app.route("/members", methods=["GET"])
 def member_get():
-    all_member = list(db.member.find({},{'_id':False}))
+    all_member = list(db.members.find({},{'_id':False}))
     return jsonify({'result':all_member})
 
 if __name__ == '__main__':

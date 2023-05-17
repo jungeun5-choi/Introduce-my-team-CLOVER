@@ -1,246 +1,269 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
 
     <title>TEAM CLOVER</title>
-    
+
     <style>
-        @font-face {
-            font-family: 'TheJamsil5Bold';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
-            font-weight: 300;
-            font-style: normal;
-        }
-        body {
-            font-family: 'TheJamsil5Bold';
-        }
-        
-        .background {
-            width: 100%;
-            height: 250px;
+      @font-face {
+        font-family: "TheJamsil5Bold";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2")
+          format("woff2");
+        font-weight: 300;
+        font-style: normal;
+      }
+      body {
+        font-family: "TheJamsil5Bold";
+      }
 
-            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1447767819330-4adf93b62dfe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format');
-            background-position: center;
-            background-size: cover;
-        }
+      .background {
+        width: 100%;
+        height: 250px;
 
-        .teamtitle {
-            width: 100%;
-            height: 250px;
-            max-width: 1200px;
+        background-image: linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+          ),
+          url("https://images.unsplash.com/photo-1447767819330-4adf93b62dfe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format");
+        background-position: center;
+        background-size: cover;
+      }
 
-            color: white;
+      .teamtitle {
+        width: 100%;
+        height: 250px;
+        max-width: 1200px;
 
-            display: flex;
-            flex-direction: column;
-            align-items: left;
+        color: white;
 
-            justify-content: center;
-            
-            margin: 0px auto 0px auto;
-            padding: 0px 20px 0px 20px;
-        }
-        .teamtitle>p {
-            
-            color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: left;
 
-            margin-top: 10px;
-            margin-left: 12px;
+        justify-content: center;
 
-            vertical-align: middle;
-        }
-        
-        .teamintroduce {
-            width: 100%;
-            max-width: 1200px;
+        margin: 0px auto 0px auto;
+        padding: 0px 20px 0px 20px;
+      }
+      .teamtitle > p {
+        color: white;
 
-            display: flex;
-            flex-direction: column;
+        margin-top: 10px;
+        margin-left: 12px;
 
-            align-items: left;
+        vertical-align: middle;
+      }
 
-            margin: 5px auto 0px auto;
-            padding: 40px 20px 40px 20px;
-        }
-        .teamintroduce>p {
-            margin-top: 15px;
-            margin-bottom: 30px;
-        }
+      .teamintroduce {
+        width: 100%;
+        max-width: 1200px;
 
-        .members {
-            width: 100%;
-            max-width: 1200px;
+        display: flex;
+        flex-direction: column;
 
-            align-items: left;
+        align-items: left;
 
-            margin: 5px auto 0px auto;
-            padding: 0px 20px 20px 20px;           
-        }
+        margin: 5px auto 0px auto;
+        padding: 40px 20px 40px 20px;
+      }
+      .teamintroduce > p {
+        margin-top: 15px;
+        margin-bottom: 30px;
+      }
 
-        .tag {       
-            width: 60px;
-            text-align: center;
-            
-            border: 1px solid transparent;
-            border-radius: 30px;
-            
-            margin-left: 10px;
+      .members {
+        width: 100%;
+        max-width: 1200px;
 
-            font-size: small;
-        }
-        #teamleader {                      
-            background-color: rgb(170,204,156);
-        }
-        #teammember {
-            background-color: lightgray;
-        }
-        #INTP {
-            color:white;
-            background-color: rgb(13, 128, 128);
-        }
-        #ISFJ {
-            color:white;
-            background-color: rgb(171, 157, 159);
-        }
-        #ISTJ {
-            color:white;
-            background-color: rgb(30, 53, 74);
-        }
-        #ENFJ {
-            color:white;
-            background-color: rgb(157, 120, 126);
-        }
-        #ESTJ {
-            color:white;
-            background-color: rgb(71, 117, 167);
-        }
+        align-items: left;
 
-        .highlight {
-            display: inline;
-            box-shadow: inset 0 -10px 0 #d4ffd6; 
-            /*-10px은 highlight의 두께*/
-        }
+        margin: 5px auto 0px auto;
+        padding: 0px 20px 20px 20px;
+      }
+
+      .tag {
+        width: 60px;
+        text-align: center;
+
+        border: 1px solid transparent;
+        border-radius: 30px;
+
+        margin-left: 10px;
+
+        font-size: small;
+      }
+      #teamleader {
+        background-color: rgb(170, 204, 156);
+      }
+      #teammember {
+        background-color: lightgray;
+      }
+      #INTP {
+        color: white;
+        background-color: rgb(13, 128, 128);
+      }
+      #ISFJ {
+        color: white;
+        background-color: rgb(171, 157, 159);
+      }
+      #ISTJ {
+        color: white;
+        background-color: rgb(30, 53, 74);
+      }
+      #ENFJ {
+        color: white;
+        background-color: rgb(157, 120, 126);
+      }
+      #ESTJ {
+        color: white;
+        background-color: rgb(71, 117, 167);
+      }
+
+      .highlight {
+        display: inline;
+        box-shadow: inset 0 -10px 0 #d4ffd6;
+        /*-10px은 highlight의 두께*/
+      }
     </style>
-    <script>
-        
-    </script>
-</head>
+    <script></script>
+  </head>
 
-<body>
+  <body>
     <!-- title -->
-    <div class ="background">
-        <div class="teamtitle">
-            <h1><b>🍀 CLOVER</b></h1>
-            <p> 6기 Spring b반 6조 </p>        
-        </div>
+    <div class="background">
+      <div class="teamtitle">
+        <h1><b>🍀 CLOVER</b></h1>
+        <p>6기 Spring b반 6조</p>
+      </div>
     </div>
     <!-- team introduce -->
-    <div class = "teamintroduce">
-        <h3>🍀<span class="highlight"> 팀 소개</span></h3>
-        <p>
-            클로버는 행복과 행운을 상징합니다. <br>
-            저희 팀은 클로버처럼 사용자에게 <span class="highlight">행복과 행운을 전하는 개발자</span>가 되고 싶은 사람들이 모였습니다. 
-        </p>
+    <div class="teamintroduce">
+      <h3>🍀<span class="highlight"> 팀 소개</span></h3>
+      <p>
+        클로버는 행복과 행운을 상징합니다. <br />
+        저희 팀은 클로버처럼 사용자에게
+        <span class="highlight">행복과 행운을 전하는 개발자</span>가 되고 싶은
+        사람들이 모였습니다.
+      </p>
 
-        <h3>🧗<span class="highlight"> 우리 팀 목표는?</span></h3>
-        <p> 
-            포기하지 말고 <span class="highlight">내배캠 완주</span>하자! <br>
-            (뭘더적으면좋을까요....)
-        </p>
+      <h3>🧗<span class="highlight"> 우리 팀 목표는?</span></h3>
+      <p>
+        포기하지 말고 <span class="highlight">내배캠 완주</span>하자! <br />
+        (뭘더적으면좋을까요....)
+      </p>
 
-        <h3>🤙<span class="highlight"> 우리 팀의 약속</span></h3>
-        <p> 
-            🙋 9시에 출석해서 서로 <span class="highlight">인사</span>하기 <br>
-            📑 매일 일과 후에는 작성한 <span class="highlight">TIL을 멤버 간 공유</span>하기 <br>
-            💾 잊지 말자 <span class="highlight">1일 1커밋!</span>
-        </p>
+      <h3>🤙<span class="highlight"> 우리 팀의 약속</span></h3>
+      <p>
+        🙋 9시에 출석해서 서로 <span class="highlight">인사</span>하기 <br />
+        📑 매일 일과 후에는 작성한
+        <span class="highlight">TIL을 멤버 간 공유</span>하기 <br />
+        💾 잊지 말자 <span class="highlight">1일 1커밋!</span>
+      </p>
     </div>
     <!-- member profiles -->
     <div class="members">
-        <h3>🍀<span class="highlight"> CLOVER 팀원들</span></h3>
-        <div class="row row-cols-1 row-cols-md-5 g-1">
-            <!-- 팀장 -->
-            <div class="col mb-5">
-                <div class="card h-70">
-                    <img src="https://images.unsplash.com/photo-1615849784427-ae4d6d895155?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format"
-                        class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">정해인</h5>
-                        <div class ="row">
-                            <p class="tag" id="teamleader">팀장</p>
-                            <p class="tag" id="INTP">INTP</p>
-                        </div>
-                    </div>
-                </div>             
+      <h3>🍀<span class="highlight"> CLOVER 팀원들</span></h3>
+      <div class="row row-cols-1 row-cols-md-5 g-1">
+        <!-- 팀장 -->
+        <div class="col mb-5">
+          <div class="card h-70">
+            <img
+              src="https://images.unsplash.com/photo-1615849784427-ae4d6d895155?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <h5 class="card-title">정해인</h5>
+              <div class="row">
+                <p class="tag" id="teamleader">팀장</p>
+                <p class="tag" id="INTP">INTP</p>
+              </div>
             </div>
-            <!-- 팀원1 -->
-            <div class="col mb-5">
-                <div class="card h-70">
-                    <img src="https://images.unsplash.com/photo-1615849784427-ae4d6d895155?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format"
-                        class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">최정은</h5>
-                        <div class ="row">
-                            <p class="tag" id="teammember">팀원</p>
-                            <p class="tag" id="ISFJ">ISFJ</p>
-                        </div>
-                    </div>
-                </div>             
-            </div>
-            <!-- 팀원2 -->
-            <div class="col mb-5">
-                <div class="card h-70">
-                    <img src="https://images.unsplash.com/photo-1615849784427-ae4d6d895155?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format"
-                        class="card-img-top">
-                    <div class="card-body">                        
-                        <h5 class="card-title">류형수</h5>
-                        <div class ="row">
-                            <p class="tag" id="teammember">팀원</p>
-                            <p class="tag" id="ISTJ">ISTJ</p>
-                        </div>
-                    </div>
-                </div>             
-            </div>
-            <!-- 팀원3 -->
-            <div class="col mb-5">
-                <div class="card h-70">
-                    <img src="https://images.unsplash.com/photo-1615849784427-ae4d6d895155?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format"
-                        class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">김태훈</h5>
-                        <div class ="row">
-                            <p class="tag" id="teammember">팀원</p>
-                            <p class="tag" id="ENFJ">ENFJ</p>
-                        </div>
-                    </div>
-                </div>             
-            </div>
-            <!-- 팀원4 -->
-            <div class="col mb-5">
-                <div class="card h-70">
-                    <img src="https://images.unsplash.com/photo-1615849784427-ae4d6d895155?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format"
-                        class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">정지상</h5>                        
-                        <div class ="row">
-                            <p class="tag" id="teammember">팀원</p>
-                            <p class="tag" id="ESTJ">ESTJ</p>
-                        </div>
-                    </div>
-                </div>             
-            </div>
+          </div>
         </div>
+        <!-- 팀원1 -->
+        <div class="col mb-5">
+          <div class="card h-70">
+            <img
+              src="https://images.unsplash.com/photo-1615849784427-ae4d6d895155?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <h5 class="card-title">최정은</h5>
+              <div class="row">
+                <p class="tag" id="teammember">팀원</p>
+                <p class="tag" id="ISFJ">ISFJ</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 팀원2 -->
+        <div class="col mb-5">
+          <div class="card h-70">
+            <img
+              src="https://images.unsplash.com/photo-1615849784427-ae4d6d895155?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <h5 class="card-title">류형수</h5>
+              <div class="row">
+                <p class="tag" id="teammember">팀원</p>
+                <p class="tag" id="ISTJ">ISTJ</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 팀원3 -->
+        <div class="col mb-5">
+          <div class="card h-70">
+            <img
+              src="https://images.unsplash.com/photo-1615849784427-ae4d6d895155?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <h5 class="card-title">김태훈</h5>
+              <div class="row">
+                <p class="tag" id="teammember">팀원</p>
+                <p class="tag" id="ENFJ">ENFJ</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 팀원4 -->
+        <div class="col mb-5">
+          <div class="card h-70">
+            <img
+              src="https://images.unsplash.com/photo-1615849784427-ae4d6d895155?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <h5 class="card-title">정지상</h5>
+              <div class="row">
+                <p class="tag" id="teammember">팀원</p>
+                <p class="tag" id="ESTJ">ESTJ</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>

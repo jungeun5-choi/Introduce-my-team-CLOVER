@@ -67,13 +67,9 @@
         display: inline-block;
         float: right;
       }
-      .member {
-      }
       .member > h4 {
         margin-left: 10px;
         color: grey;
-      }
-      .member > .name {
       }
       .member > .desc {
         margin-top: 120px;
@@ -97,25 +93,54 @@
       });
 
       function listing() {
-        fetch("/movie")
+        fetch("/members")
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
-            alert(data["msg"]);
+            $("#main").empty;
+            let rows = data["result"];
+
+            rows((a) => {
+              let name = a["name"];
+              let mbti = a["mbti"];
+              let selfintro = a["selfintro"];
+              let mystyle = a["mystyle"];
+              let blog = a["blog"];
+              let image = a["image"];
+
+              let temp_html = `        <div class="main" id="main">
+          <div class="image">
+            <img
+              src="${image}"
+              style="width: 500px; height: 400px"
+            />
+          </div>
+          <div class="member">
+            <div class="name">
+              <h1>${name}</h1>
+              <h4>-${mbti}</h4>
+            </div>
+            <div class="selfintro">
+              <h3>자기소개</h3>
+              <p>
+                ${selfintro}
+              </p>
+            </div>
+            <div class="mystyle">
+              <h3>자신의 스타일, 협업 스타일</h3>
+              <p>
+                ${mystyle}
+              </p>
+            </div>
+            <h5 style="margin-top: 40px">블로그 주소:${blog}</h5>
+          </div>
+        </div>
+              `;
+              $("#main").append(temp_html);
+            });
           });
       }
 
-      function posting() {
-        let formData = new FormData();
-        formData.append("sample_give", "샘플데이터");
-
-        fetch("/movie", { method: "POST", body: formData })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-            alert(data["msg"]);
-          });
-      }
+      function requestURL(req, res) {}
 
       function open_box() {
         $("#post-box").show();
@@ -132,7 +157,7 @@
     </div>
     <div>
       <div class="intro">
-        <div class="main">
+        <div class="main" id="main">
           <div class="image">
             <img
               src="https://www.adobe.com/content/dam/cc/us/en/creative-cloud/photography/discover/landscape-photography/CODERED_B1_landscape_P2d_714x348.jpg.img.jpg"
@@ -144,7 +169,7 @@
               <h1>팀원 이름</h1>
               <h4>-MBTI</h4>
             </div>
-            <div class="desc">
+            <div class="selfintro">
               <h3>자기소개</h3>
               <p>
                 "What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the
