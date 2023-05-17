@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>멤버 소개</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      @font-face {
+        font-family: "TheJamsil5Bold";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2")
+          format("woff2");
+        font-weight: 300;
+        font-style: normal;
+      }
+      body {
+        font-family: "TheJamsil5Bold";
+      }
+      .mytitle {
+        width: 100%;
+        height: 150px;
+
+        background-image: linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+          ),
+          url("https://images.unsplash.com/photo-1615849784427-ae4d6d895155?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&w=1920&q=100");
+
+        background-position: center;
+        background-size: cover;
+
+        color: white;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .main {
+        margin: 40px 100px 0px 100px;
+      }
+      .image {
+        display: inline-block;
+        float: right;
+      }
+      .member {
+      }
+      .member > h4 {
+        margin-left: 10px;
+        color: grey;
+      }
+      .member > .name {
+      }
+      .member > .desc {
+        margin-top: 120px;
+      }
+      .member > .mystyle {
+        margin-top: 50px;
+      }
+      .mypost {
+        width: 95%;
+        max-width: 500px;
+        margin: 20px auto 0px auto;
+        padding: 20px;
+        box-shadow: 0px 0px 3px 0px gray;
+
+        display: none;
+      }
+    </style>
+    <script>
+      $(document).ready(function () {
+            listing();
+        });
+
+      function listing() {
+        let id = searchParam('id');
+        let formData = new FormData();
+        formData.append("id_give", id);
+
+        fetch('/getmember', { method: "POST", body: formData }).then((res) => res.json()).then((data) => {
+          let rows = data['result']
+
+          console.log(rows)
+          var count = 0;
+          if (rows !=  undefined && rows !=  "") {
+            $('#member_name').empty()
+            $('#member_mbti').empty()
+            $('#member_selfintro').empty()
+            $('#member_mystyle').empty()
+            $('#member_blog').empty()
+            // 불러온 값 반영
+            $('#member_name').text(rows["name"])
+            $('#member_mbti').text(rows["mbti"])
+            $('#member_selfintro').text(rows["selfintro"])
+            $('#member_mystyle').text(rows["mystyle"])
+            $('#member_blog').text(rows["blog"])
+            $('#member_image').attr('src',rows["image"])
+          }
+        })
+      }
+
+      function searchParam(key) {
+        return new URLSearchParams(location.search).get(key);
+      };
+
+      function posting() {
+        let formData = new FormData();
+        formData.append("sample_give", "샘플데이터");
+
+        fetch("/movie", { method: "POST", body: formData })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            alert(data["msg"]);
+          });
+      }
+
+      function open_box() {
+        $("#post-box").show();
+      }
+      function close_box() {
+        $("#post-box").hide();
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="mytitle">
+      <h3>🍀팀원 소개 페이지</h3>
+    </div>
+    <div>
+      <div class="intro">
+        <div class="main">
+          <div class="image">
+            <img
+              id="member_image"
+              src="https://www.adobe.com/content/dam/cc/us/en/creative-cloud/photography/discover/landscape-photography/CODERED_B1_landscape_P2d_714x348.jpg.img.jpg"
+              style="width: 500px; height: 400px"
+            />
+          </div>
+          <div class="member">
+            <div class="name">
+              <h1>팀원 이름</h1> <span id="member_name"></span>
+              <h4>-MBTI</h4> <span id="member_mbti"></span>
+            </div>
+            <div class="desc">
+              <h3>자기소개</h3>
+              <p id="member_selfintro">
+                "What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the
+                printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an
+                unknown printer took a galley of type and scrambled it to make a
+                type specimen book. It has survived not only five centuries, but
+                also the leap into electronic typesetting, remaining essentially
+                unchanged. It was popularised in the 1960s with the release of
+                Letraset sheets containing Lorem Ipsum passages, and more
+                recently with desktop publishing software like Aldus PageMaker
+                including versions of Lorem Ipsum."
+              </p>
+            </div>
+            <div class="mystyle">
+              <h3>자신의 스타일, 협업 스타일</h3>
+              <p id="member_mystyle">
+                "Where does it come from? Contrary to popular belief, Lorem
+                Ipsum is not simply random text. It has roots in a piece of
+                classical Latin literature from 45 BC, making it over 2000 years
+                old. Richard McClintock, a Latin professor at Hampden-Sydney
+                College in Virginia, looked up one of the more obscure Latin
+                words, consectetur, from a Lorem Ipsum passage, and going
+                through the cites of the word in classical literature,
+                discovered the undoubtable source. Lorem Ipsum comes from
+                sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum"
+                (The Extremes of Good and Evil) by Cicero, written in 45 BC.
+                This book is a treatise on the theory of ethics, very popular
+                during the Renaissance. The first line of Lorem Ipsum, "Lorem
+                ipsum dolor sit amet..", comes from a line in section 1.10.32."
+              </p>
+            </div>
+            <h5 style="margin-top: 40px">블로그 주소:<span id="member_blog"></span></h5>
+          </div>
+        </div>
+      </div>
+      <!--
+      <div class="write">
+        <button onclick="open_box()">등록하기/수정하기</button>
+        <div class="mypost" id="post-box">
+          <div class="form-floating mb-3">
+            <input
+              id="url"
+              type="email"
+              class="form-control"
+              placeholder="name@example.com"
+            />
+            <label>이미지URL</label>
+          </div>
+          <div class="form-floating mb-3">
+            <textarea
+              id="comment"
+              class="form-control"
+              placeholder="Leave a comment here"
+            ></textarea>
+            <label for="floatingTextarea2">이름</label>
+          </div>
+          <div class="form-floating mb-3">
+            <textarea
+              id="comment"
+              class="form-control"
+              placeholder="Leave a comment here"
+            ></textarea>
+            <label for="floatingTextarea2">MBTI</label>
+          </div>
+          <div class="form-floating mb-3">
+            <textarea
+              id="comment"
+              class="form-control"
+              placeholder="Leave a comment here"
+            ></textarea>
+            <label for="floatingTextarea2">자기소개</label>
+          </div>
+          <div class="form-floating mb-3">
+            <textarea
+              id="comment"
+              class="form-control"
+              placeholder="Leave a comment here"
+            ></textarea>
+            <label for="floatingTextarea2">자신만의 스타일, 협업 스타일</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              id="url"
+              type="email"
+              class="form-control"
+              placeholder="name@example.com"
+            />
+            <label>블로그 주소</label>
+          </div>
+          <div class="mybtns">
+            <button onclick="posting()" type="button" class="btn btn-dark">
+              기록하기
+            </button>
+            <button
+              onclick="close_box()"
+              type="button"
+              class="btn btn-outline-dark"
+            >
+              닫기
+            </button>
+          </div>
+        </div>
+      </div>-->
+    </div>
+  </body>
+</html>
