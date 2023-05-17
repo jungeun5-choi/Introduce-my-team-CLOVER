@@ -40,14 +40,14 @@
       }
       .mytitle {
         width: 100%;
-        height: 150px;
+        height: 200px;
 
         background-image: linear-gradient(
             0deg,
             rgba(0, 0, 0, 0.5),
             rgba(0, 0, 0, 0.5)
           ),
-          url("https://images.unsplash.com/photo-1615849784427-ae4d6d895155?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&w=1920&q=100");
+          url("https://images.unsplash.com/photo-1447767819330-4adf93b62dfe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format");
 
         background-position: center;
         background-size: cover;
@@ -61,19 +61,20 @@
       }
 
       .main {
-        margin: 40px 100px 0px 100px;
+        margin: 50px 150px 0px 150px;
       }
       .image {
         display: inline-block;
         float: right;
+        margin-left: 30px;
+        margin-bottom: 30px;
       }
       .member {
+        width: 50%;
       }
       .member > h4 {
         margin-left: 10px;
         color: grey;
-      }
-      .member > .name {
       }
       .member > .desc {
         margin-top: 120px;
@@ -87,45 +88,46 @@
         margin: 20px auto 0px auto;
         padding: 20px;
         box-shadow: 0px 0px 3px 0px gray;
-
         display: none;
       }
     </style>
     <script>
       $(document).ready(function () {
-            listing();
-        });
+        listing();
+      });
 
       function listing() {
-        let id = searchParam('id');
+        let id = searchParam("id");
         let formData = new FormData();
         formData.append("id_give", id);
 
-        fetch('/getmember', { method: "POST", body: formData }).then((res) => res.json()).then((data) => {
-          let rows = data['result']
+        fetch("/getmember", { method: "POST", body: formData })
+          .then((res) => res.json())
+          .then((data) => {
+            let rows = data["result"];
 
-          console.log(rows)
-          var count = 0;
-          if (rows !=  undefined && rows !=  "") {
-            $('#member_name').empty()
-            $('#member_mbti').empty()
-            $('#member_selfintro').empty()
-            $('#member_mystyle').empty()
-            $('#member_blog').empty()
-            // 불러온 값 반영
-            $('#member_name').text(rows["name"])
-            $('#member_mbti').text(rows["mbti"])
-            $('#member_selfintro').text(rows["selfintro"])
-            $('#member_mystyle').text(rows["mystyle"])
-            $('#member_blog').text(rows["blog"])
-            $('#member_image').attr('src',rows["image"])
-          }
-        })
+            console.log(rows);
+            var count = 0;
+            if (rows != undefined && rows != "") {
+              $("#member_name").empty();
+              $("#member_mbti").empty();
+              $("#member_selfintro").empty();
+              $("#member_mystyle").empty();
+              $("#member_blog").empty();
+              // 불러온 값 반영
+              $("#member_name").text(rows["name"]);
+              $("#member_mbti").text(rows["mbti"]);
+              $("#member_selfintro").text(rows["selfintro"]);
+              $("#member_mystyle").text(rows["mystyle"]);
+              $("#member_blog").text(rows["blog"]);
+              $("#member_image").attr("src", rows["image"]);
+            }
+          });
       }
 
       function searchParam(key) {
         return new URLSearchParams(location.search).get(key);
-      };
+      }
 
       function posting() {
         let formData = new FormData();
@@ -159,13 +161,15 @@
             <img
               id="member_image"
               src="https://www.adobe.com/content/dam/cc/us/en/creative-cloud/photography/discover/landscape-photography/CODERED_B1_landscape_P2d_714x348.jpg.img.jpg"
-              style="width: 500px; height: 400px"
+              style="width: 700px; height: 450px"
             />
           </div>
           <div class="member">
             <div class="name">
-              <h1>팀원 이름</h1> <span id="member_name"></span>
-              <h4>-MBTI</h4> <span id="member_mbti"></span>
+              <h1>팀원 이름</h1>
+              <span id="member_name"></span>
+              <h4>-MBTI</h4>
+              <span id="member_mbti"></span>
             </div>
             <div class="desc">
               <h3>자기소개</h3>
@@ -200,7 +204,9 @@
                 ipsum dolor sit amet..", comes from a line in section 1.10.32."
               </p>
             </div>
-            <h5 style="margin-top: 40px">블로그 주소:<span id="member_blog"></span></h5>
+            <h5 style="margin-top: 40px">
+              블로그 주소:<span id="member_blog"></span>
+            </h5>
           </div>
         </div>
       </div>
