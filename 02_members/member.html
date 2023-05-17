@@ -47,7 +47,7 @@
             rgba(0, 0, 0, 0.5),
             rgba(0, 0, 0, 0.5)
           ),
-          url("https://images.unsplash.com/photo-1615849784427-ae4d6d895155?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&w=1920&q=100");
+          url("https://images.unsplash.com/photo-1447767819330-4adf93b62dfe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format");
 
         background-position: center;
         background-size: cover;
@@ -61,21 +61,26 @@
       }
 
       .main {
-        margin: 40px 100px 0px 100px;
+        margin: 50px 130px 0px 130px;
       }
       .image {
         display: inline-block;
         float: right;
+        margin-left: 30px;
+        margin-bottom: 30px;
       }
       .member > h4 {
         margin-left: 10px;
         color: grey;
       }
-      .member > .desc {
+      .member > .selfintro {
         margin-top: 120px;
       }
       .member > .mystyle {
         margin-top: 50px;
+      }
+      .member > h5 {
+        margin-top: 40px;
       }
       .mypost {
         width: 95%;
@@ -107,34 +112,33 @@
               let blog = a["blog"];
               let image = a["image"];
 
-              let temp_html = `        <div class="main" id="main">
-          <div class="image">
-            <img
-              src="${image}"
-              style="width: 500px; height: 400px"
-            />
-          </div>
-          <div class="member">
-            <div class="name">
-              <h1>${name}</h1>
-              <h4>-${mbti}</h4>
-            </div>
-            <div class="selfintro">
-              <h3>자기소개</h3>
-              <p>
-                ${selfintro}
-              </p>
-            </div>
-            <div class="mystyle">
-              <h3>자신의 스타일, 협업 스타일</h3>
-              <p>
-                ${mystyle}
-              </p>
-            </div>
-            <h5 style="margin-top: 40px">블로그 주소:${blog}</h5>
-          </div>
-        </div>
-              `;
+              let temp_html = `<div class="main" id="main">
+                                  <div class="image">
+                                    <img
+                                      src="${image}"
+                                      style="width: 500px; height: 400px"
+                                    />
+                                  </div>
+                                  <div class="member">
+                                    <div class="name">
+                                      <h1>${name}</h1>
+                                      <h4>-${mbti}</h4>
+                                    </div>
+                                    <div class="selfintro">
+                                      <h3>자기소개</h3>
+                                      <p>
+                                        ${selfintro}
+                                      </p>
+                                    </div>
+                                    <div class="mystyle">
+                                      <h3>자신의 스타일, 협업 스타일</h3>
+                                      <p>
+                                        ${mystyle}
+                                      </p>
+                                    </div>
+                                    <h5>블로그 주소:${blog}</h5>
+                                  </div>
+                                </div>`;
               $("#main").append(temp_html);
             });
           });
@@ -202,7 +206,7 @@
                 ipsum dolor sit amet..", comes from a line in section 1.10.32."
               </p>
             </div>
-            <h5 style="margin-top: 40px">블로그 주소:</h5>
+            <h5>블로그 주소:</h5>
           </div>
         </div>
       </div>
