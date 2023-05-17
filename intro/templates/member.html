@@ -106,7 +106,7 @@
           .then((data) => {
             let rows = data["result"];
 
-            console.log(rows);
+            // console.log(rows);
             var count = 0;
             if (rows != undefined && rows != "") {
               $("#member_name").empty();
@@ -129,17 +129,17 @@
         return new URLSearchParams(location.search).get(key);
       }
 
-      function posting() {
-        let formData = new FormData();
-        formData.append("sample_give", "샘플데이터");
+      // 추후 개발(수정)
+      // function posting() {
+      //   let formData = new FormData();
+      //   formData.append("sample_give", "샘플데이터");
 
-        fetch("/movie", { method: "POST", body: formData })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-            alert(data["msg"]);
-          });
-      }
+      //   fetch("/movie", { method: "POST", body: formData })
+      //     .then((res) => res.json())
+      //     .then((data) => {
+      //       alert(data["msg"]);
+      //     });
+      // }
 
       function open_box() {
         $("#post-box").show();

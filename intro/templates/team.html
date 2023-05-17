@@ -141,6 +141,10 @@
             /*-10px은 highlight의 두께*/
         }
         
+        .div-img-top {
+            cursor:pointer
+        }
+        
     </style>
     <script>
         $(document).ready(function () {
@@ -158,7 +162,7 @@
 
             fetch('/members').then((res) => res.json()).then((data) => {
                 let rows = data['result']
-                console.log(rows)
+                // console.log(rows)
                 $('#members').empty()
                 var count = 0;
 
@@ -175,11 +179,11 @@
                         let mystyle = a['mystyle']
                         let blog = a['blog']
                         let image = (a['image'] == undefined || a['image'] == "" ? "https://images.unsplash.com/photo-1615849784427-ae4d6d895155?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format" : a['image'])
-                        let isManager = a['ismanager']
+                        let isManager = a['isManager']
                         let id = a['_id']
-                        console.log(id)
+                        // console.log(isManager)
 
-
+                        // db값을 조회했을때 isManager 컬럼값이 Y일 경우 팀장
                         if (isManager == 'Y') {
                             let temp_html = `                            
                             <div class="col mb-5">
