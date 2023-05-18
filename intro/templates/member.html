@@ -82,6 +82,9 @@
       .member > .mystyle {
         margin-top: 50px;
       }
+      .member > h5 > span {
+        color: grey;
+      }
       .mypost {
         width: 95%;
         max-width: 500px;
@@ -120,6 +123,9 @@
               $("#member_selfintro").text(rows["selfintro"]);
               $("#member_mystyle").text(rows["mystyle"]);
               $("#member_blog").text(rows["blog"]);
+              $("#member_bloglink").click(function () {
+                $(location).attr("href", rows["blog"]);
+              });
               $("#member_image").attr("src", rows["image"]);
             }
           });
@@ -161,7 +167,7 @@
             <img
               id="member_image"
               src="https://www.adobe.com/content/dam/cc/us/en/creative-cloud/photography/discover/landscape-photography/CODERED_B1_landscape_P2d_714x348.jpg.img.jpg"
-              style="width: 700px; height: 450px"
+              style="width: 600px; height: 450px"
             />
           </div>
           <div class="member">
@@ -203,7 +209,9 @@
               </p>
             </div>
             <h5 style="margin-top: 40px">
-              블로그 주소:<span id="member_blog"></span>
+              블로그 주소:<span id="member_bloglink"
+                ><span id="member_blog">블로그</span></span
+              >
             </h5>
           </div>
         </div>
