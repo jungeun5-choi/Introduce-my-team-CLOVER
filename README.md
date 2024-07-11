@@ -68,4 +68,4 @@
 👩‍💻 정해인 - [Blog](https://haeinj-backend-study.tistory.com/) / [GitHub](https://github.com/haeinjung3)<br>
 👨‍💻 김태훈 - [Blog](https://skillazit.tistory.com/) / [GitHub](https://github.com/sxi8022)<br>
 👩‍💻 최정은 - [Blog](https://velog.io/@temprmn) / [GitHub](https://github.com/jungeun5-choi/)<br>
-👨‍💻 정지상 - [Blog](https://jjsjjs9.tistory.com/)<br>
+👨‍💻 정지상 - [Blog](https://jjsjjs9.tistory.com/) / [GitHub](https://github.com/jjsjjs9)<br>
